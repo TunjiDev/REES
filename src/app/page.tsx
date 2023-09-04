@@ -13,15 +13,11 @@ import {
 } from "@/components/chakra-provider/index";
 import theme from "@/utils/theme";
 import Card from "@/components/card";
-import SellDisplay from "./(components)/sell-display";
-import RentDisplay from "./(components)/rent-display";
-import BuyDisplay from "./(components)/buy-display";
+import SellDisplay from "./(components)/sell-or-rent-display";
 import { useGetFeaturedProperties, useGetRentProperties, useGetSaleProperties } from "@/services/queries/properties";
 
 export default function Home() {
-  const [openSellModal, setOpenSellModal] = useState(false);
-  const [openRentModal, setOpenRentModal] = useState(false);
-  const [openBuyModal, setOpenBuyModal] = useState(false);
+  const [openSellOrRentModal, setOpenSellOrRentModal] = useState(false);
 
   const {
     data: featuredProperties,
@@ -30,6 +26,8 @@ export default function Home() {
   } = useGetFeaturedProperties();
   const { data: rentalProperties, isLoading: rentPropsLoading, isSuccess: rentPropsSuccess } = useGetRentProperties();
   const { data: saleProperties, isLoading: salePropsLoading, isSuccess: salePropsSuccess } = useGetSaleProperties();
+
+  // console.log(rentalProperties);
 
   return (
     <>
@@ -122,10 +120,11 @@ export default function Home() {
 
         <Flex
           gap={{ base: 10, lg: 20 }}
-          w={{ base: "90%", lg: "80%" }}
+          w={{ base: "90%", lg: "50%" }}
           m={"auto"}
           direction={{ base: "column", lg: "row" }}
           alignItems={{ base: "center", lg: "normal" }}
+          justifyContent={"center"}
         >
           <Box
             borderRadius={".5rem"}
@@ -135,57 +134,13 @@ export default function Home() {
             py={"1rem"}
             px={"1rem"}
             w={{ base: "full", sm: "80%" }}
-            onClick={() => setOpenSellModal(true)}
+            onClick={() => setOpenSellOrRentModal(true)}
           >
             <Box mb={"1rem"}>
               <ChakraImage src={"/icons/sell-icon.svg"} alt={"sell"} />
             </Box>
             <Text fontWeight={"bold"} fontSize={{ base: "1rem", lg: "1.5rem" }} mb={"1rem"} textAlign={"left"}>
               Sell Your Home
-            </Text>
-
-            <Text color={theme.colors.typography.gray} textAlign={"left"} fontSize={{ base: ".725rem", lg: "1rem" }}>
-              We do a free evaluation to be sure you want to start selling.
-            </Text>
-          </Box>
-
-          <Box
-            borderRadius={".5rem"}
-            cursor={"pointer"}
-            boxShadow={"2xl"}
-            bg={"#fff"}
-            py={"1rem"}
-            px={"1rem"}
-            w={{ base: "full", sm: "80%" }}
-            onClick={() => setOpenRentModal(true)}
-          >
-            <Box mb={"1rem"}>
-              <ChakraImage src={"/icons/rent-icon.svg"} alt={"rent"} />
-            </Box>
-            <Text fontWeight={"bold"} fontSize={{ base: "1rem", lg: "1.5rem" }} mb={"1rem"} textAlign={"left"}>
-              Rent your home
-            </Text>
-
-            <Text color={theme.colors.typography.gray} textAlign={"left"} fontSize={{ base: ".725rem", lg: "1rem" }}>
-              We do a free evaluation to be sure you want to start selling.
-            </Text>
-          </Box>
-
-          <Box
-            borderRadius={".5rem"}
-            cursor={"pointer"}
-            boxShadow={"2xl"}
-            bg={"#fff"}
-            py={"1rem"}
-            px={"1rem"}
-            w={{ base: "full", sm: "80%" }}
-            onClick={() => setOpenBuyModal(true)}
-          >
-            <Box mb={"1rem"}>
-              <ChakraImage src={"/icons/buy-icon.svg"} alt={"buy"} />
-            </Box>
-            <Text fontWeight={"bold"} fontSize={{ base: "1rem", lg: "1.5rem" }} mb={"1rem"} textAlign={"left"}>
-              Buy A Home
             </Text>
 
             <Text color={theme.colors.typography.gray} textAlign={"left"} fontSize={{ base: ".725rem", lg: "1rem" }}>
@@ -277,9 +232,7 @@ export default function Home() {
         </Flex>
       </Box>
 
-      {openSellModal && <SellDisplay openModal={openSellModal} setOpenModal={setOpenSellModal} />}
-      {openRentModal && <RentDisplay openModal={openRentModal} setOpenModal={setOpenRentModal} />}
-      {openBuyModal && <BuyDisplay openModal={openBuyModal} setOpenModal={setOpenBuyModal} />}
+      {openSellOrRentModal && <SellDisplay openModal={openSellOrRentModal} setOpenModal={setOpenSellOrRentModal} />}
     </>
   );
 }

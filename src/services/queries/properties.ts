@@ -31,9 +31,13 @@ export const useGetProperties = (page: number, pageSize: number, filters: Proper
           query = query.filter("price", "gte", Number(filters.priceRange.slice(0, -1)));
       }
 
+      // Apply sorting based on the filter order, if provided
       if (filters.order) {
-        if (filters.order === "newest") query = query.order("createdAt", { ascending: true });
-        if (filters.order === "oldest") query = query.order("createdAt", { ascending: false });
+        if (filters.order === "oldest") query = query.order("createdAt", { ascending: true });
+        if (filters.order === "newest") query = query.order("createdAt", { ascending: false });
+      } else {
+        // If no sorting order is specified, default to sorting by createdAt in descending order
+        query = query.order("createdAt", { ascending: false });
       }
 
       const { data, error } = await query;

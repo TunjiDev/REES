@@ -43,11 +43,11 @@ const Popup = ({
       <ModalContent
         maxWidth={maxW}
         height={height}
-        width="93%"
+        width="100%"
         position="relative"
         background={"#fff"}
         py={{ base: "1rem", md: "4.8rem" }}
-        px={{ base: ".5rem", md: "2.2rem" }}
+        px={{ base: ".1rem", md: "2.2rem" }}
         {...contentProps}
         color={"#0D1117"}
       >
@@ -63,7 +63,7 @@ const Popup = ({
           />
         )}
         {description && (
-          <Text fontWeight="bold" fontSize={{ base: "20px", lg: "30px" }} color={"#0D1117"}>
+          <Text fontWeight="bold" fontSize={{ base: "18px", lg: "28px" }} color={"#0D1117"}>
             {description}
           </Text>
         )}

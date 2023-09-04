@@ -12,18 +12,20 @@ export interface PropertiesFilter {
   order: string;
 }
 
-export interface PropertiesResponse {
-  id: number;
-  createdAt: string;
+export interface PropertiesType {
+  id?: number;
+  createdAt?: string;
   name: string;
-  image: string;
+  image: any;
   firstName: string;
   lastName: string;
   email: string;
   description: string;
-  isFeatured: boolean;
-  forRent: boolean;
-  forSale: boolean;
+  isFeatured?: boolean;
+  forRent?: boolean;
+  forSale?: boolean;
   location: string;
-  inGallery: boolean;
+  inGallery?: boolean;
+  price: string;
+  rentOrSale?: string;
 }
