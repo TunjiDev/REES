@@ -1,3 +1,5 @@
+"use server";
+
 import { Box, Flex, Heading, Text, Image } from "@/components/chakra-provider";
 
 function About() {
