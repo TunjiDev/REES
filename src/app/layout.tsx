@@ -14,7 +14,7 @@ const inter = ABeeZee({
   weight: "400",
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Real Estate (REES)",
   description: "Real Estate is a real estate company that provides real estate services to its clients.",
 };
