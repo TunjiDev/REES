@@ -13,7 +13,7 @@ export const SuccessEmail = ({ firstname }: ContactEmailProps) => {
       <Preview>The sales intelligence platform that helps you uncover qualified leads.</Preview>
       <Body style={main}>
         <Container style={container}>
-          <Link href="https://tunji-portfolio.netlify.app/">
+          <Link href="https://rees.vercel.app/">
             <Img
               src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/logo.png`} /*`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/${imageName}`*/
               width="120"
