@@ -148,7 +148,7 @@ function Properties() {
                 imgAlt={property?.name}
                 title={property?.name}
                 description={truncate(property?.description, 100)}
-                price={`₦${property?.price}`}
+                price={`₦ ${property?.price.toLocaleString()}`}
                 key={property?.id}
                 onClick={() => {
                   router.push(`/properties/${property?.id}`);
