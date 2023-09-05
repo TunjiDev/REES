@@ -13,3 +13,10 @@ export const RentOrSellSchema = Yup.object().shape({
   }),
   rentOrSale: Yup.string().trim().required("Please select one option"),
 });
+
+export const ContactSchema = Yup.object().shape({
+  firstName: Yup.string().trim().required("First name is required"),
+  lastName: Yup.string().trim().required("Last name is required"),
+  email: Yup.string().trim().email("Invalid email").required("Email is required"),
+  message: Yup.string().trim().required("Please provide a message"),
+});

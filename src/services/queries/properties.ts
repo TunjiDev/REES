@@ -54,6 +54,20 @@ export const useGetProperties = (page: number, pageSize: number, filters: Proper
     keepPreviousData: true,
   });
 
+export const useGetProperty = (id: number) =>
+  useQuery({
+    queryKey: ["property", id],
+    queryFn: async () => {
+      let { data, error } = await supabase.from("properties").select("*").eq("id", id).single();
+
+      if (error) {
+        return toast.error(error.message);
+      }
+
+      return data as any;
+    },
+  });
+
 export const useGetFeaturedProperties = () =>
   useQuery({
     queryKey: ["featuredProperties"],

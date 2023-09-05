@@ -27,8 +27,6 @@ export default function Home() {
   const { data: rentalProperties, isLoading: rentPropsLoading, isSuccess: rentPropsSuccess } = useGetRentProperties();
   const { data: saleProperties, isLoading: salePropsLoading, isSuccess: salePropsSuccess } = useGetSaleProperties();
 
-  // console.log(rentalProperties);
-
   return (
     <>
       <Box

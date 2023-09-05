@@ -7,8 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ChakraProviders } from "@/components/chakra-provider";
-import Header from "@/components/wrapper/header";
-import Footer from "@/components/wrapper/footer";
+import Layout from "@/components/wrapper/Layout";
 
 const inter = ABeeZee({
   subsets: ["latin"],
@@ -46,9 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }}
           />
           <ChakraProviders>
-            <Header />
-            {children}
-            <Footer />
+            <Layout>{children}</Layout>
           </ChakraProviders>
         </QueryClientProvider>
       </body>

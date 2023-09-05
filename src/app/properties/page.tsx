@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import AppButton from "@/components/app-button";
 import Card from "@/components/card";
 import { Box, Flex, Heading, SimpleGrid, Text, Spinner, useMediaQuery } from "@/components/chakra-provider/index";
@@ -39,6 +40,7 @@ function Properties() {
   const [page, setPage] = useState(0);
   const pageSize = PAGE_SIZE;
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+  const router = useRouter();
   const [filters, setFilters] = useState<PropertiesFilter>({
     location: "",
     propertyType: "",
@@ -148,6 +150,9 @@ function Properties() {
                 description={truncate(property?.description, 100)}
                 price={`₦${property?.price}`}
                 key={property?.id}
+                onClick={() => {
+                  router.push(`/properties/${property?.id}`);
+                }}
               />
             ))}
           {properties.length === 0 && (

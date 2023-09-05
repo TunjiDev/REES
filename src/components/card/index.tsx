@@ -7,11 +7,12 @@ interface PropType {
   title: string;
   description: string;
   price: string;
+  onClick?: () => void;
 }
 
-function index({ imgSrc, imgAlt, title, description, price }: PropType) {
+function index({ imgSrc, imgAlt, title, description, price, onClick }: PropType) {
   return (
-    <Card maxW="sm">
+    <Card maxW="sm" cursor={"pointer"} onClick={onClick}>
       <CardBody>
         <ChakraImage src={imgSrc} alt={imgAlt} borderRadius="lg" />
         <Stack mt="6" spacing="3">

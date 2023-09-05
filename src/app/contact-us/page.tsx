@@ -1,8 +1,46 @@
+"use client";
+
 import { Box, Flex, Heading, Text, Textarea } from "@/components/chakra-provider/index";
 import AppButton from "@/components/app-button";
 import AppInput from "@/components/app-input";
+import { ContactSchema } from "@/utils/schema";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
 
 function Contact() {
+  const formHook = useForm({
+    resolver: yupResolver(ContactSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = formHook;
+
+  const submit = async (data: any) => {
+    const result = await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    const res = await result.json();
+    if (res.status === "success") {
+      toast.success("Message sent successfully!");
+      reset();
+    } else {
+      return toast.error("An error occurred, please try again!");
+    }
+  };
+
   return (
     <Box as="section">
       <Box
@@ -27,9 +65,9 @@ function Contact() {
         </Text>
       </Box>
 
-      <Box py={"2rem"} px={{ base: "1rem", lg: "2rem" }} as="section" bg={"#EDEFF6"}>
-        <Box mt={"3rem"} w={{ base: "95%", lg: "50%" }} mx={"auto"} bg={"#fff"} p={"1.5rem"}>
-          <form>
+      <Box py={"2rem"} px={{ base: ".5rem", lg: "2rem" }} as="section" bg={"#EDEFF6"}>
+        <Box mt={"3rem"} w={{ base: "100%", lg: "50%" }} mx={"auto"} bg={"#fff"} p={"1.5rem"}>
+          <form onSubmit={handleSubmit(submit)}>
             <Text
               fontSize={{ base: ".725rem", lg: "1rem" }}
               as={"h3"}
@@ -45,20 +83,35 @@ function Contact() {
             </Text>
 
             <Flex gap={3} mb={"1rem"}>
-              <AppInput placeholder={"First Name"} mr={"1rem"} />
-              <AppInput placeholder={"Last Name"} />
+              <AppInput
+                placeholder={"First Name"}
+                mr={"1rem"}
+                register={register("firstName")}
+                errorMessage={errors.firstName?.message}
+              />
+              <AppInput
+                placeholder={"Last Name"}
+                register={register("lastName")}
+                errorMessage={errors.lastName?.message}
+              />
             </Flex>
 
             <Box mb={"1rem"}>
-              <AppInput placeholder={"Email"} />
+              <AppInput placeholder={"Email"} register={register("email")} errorMessage={errors.email?.message} />
             </Box>
 
             <Box mb={"1rem"}>
-              <Textarea placeholder={"Comments or Questions"} />
+              <Textarea placeholder={"Comments or Questions"} {...register("message", { required: true })} />
+
+              {errors.message && (
+                <Text mt={"1rem"} color={"red"} fontSize={{ base: ".725rem", lg: "1rem" }}>
+                  {errors.message.message}
+                </Text>
+              )}
             </Box>
 
             <Flex justifyContent={"center"}>
-              <AppButton w={"30%"} variant={"primary"}>
+              <AppButton w={"30%"} variant={"primary"} type="submit" isLoading={isSubmitting}>
                 Submit
               </AppButton>
             </Flex>

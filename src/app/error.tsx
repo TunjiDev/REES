@@ -5,7 +5,9 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
   return (
     <Flex color={"#ff5555"} justifyContent={"center"}>
       <Box mt={"5rem"}>
-        <Text textAlign={"center"}>{error.message}</Text>
+        <Text textAlign={"center"} fontSize={{ base: ".725rem", lg: "1rem" }}>
+          {error.message}
+        </Text>
         <Box w={"50%"} m={"auto"}>
           <button onClick={() => reset()}>Try again</button>
         </Box>
