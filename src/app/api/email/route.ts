@@ -5,14 +5,14 @@ import { SuccessEmail } from "../../emails/index";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  const { firstName, email } = await request.json();
+  const { firstName, lastName, email, message } = await request.json();
 
   await resend.sendEmail({
     from: "Rees<onboarding@resend.dev>",
     to: "adetunjiigbatayo@gmail.com",
-    subject: "REES has a new message for you!",
+    subject: `${firstName} has a new message for you!`,
     reply_to: email,
-    react: SuccessEmail({ firstName }),
+    react: SuccessEmail({ firstName, lastName, message }),
   });
 
   return NextResponse.json({

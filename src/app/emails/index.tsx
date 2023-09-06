@@ -4,9 +4,11 @@ import * as React from "react";
 
 interface ContactEmailProps {
   firstName: string;
+  lastName: string;
+  message: string;
 }
 
-export const SuccessEmail = ({ firstName }: ContactEmailProps) => {
+export const SuccessEmail = ({ firstName, lastName, message }: ContactEmailProps) => {
   return (
     <Html>
       <Head />
@@ -15,20 +17,20 @@ export const SuccessEmail = ({ firstName }: ContactEmailProps) => {
         <Container style={container}>
           <Link href="https://rees.vercel.app/">
             <Img
-              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/logo.png`} /*`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/${imageName}`*/
+              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/logo.png`}
               width="120"
               height="50"
               alt="Logo"
               style={logo}
             />
           </Link>
-          <Text style={paragraph}>Hi {firstName},</Text>
+          <Text style={paragraph}>Hi Tunji,</Text>
+          <Text style={paragraph}>{message}</Text>
           <Text style={paragraph}>
-            We hope this message finds you well. Thank you for reaching out to us at REES. We greatly appreciate your
-            interest in our services and properties.
+            Regards, {firstName} {lastName}
           </Text>
 
-          <Text style={paragraph}>
+          {/* <Text style={paragraph}>
             One of our dedicated team members will review your inquiry as soon as possible and respond promptly. Your
             satisfaction is our top priority, and we are committed to assisting you in finding your dream property,
             whether it&apos;s for sale or rent.
@@ -40,7 +42,7 @@ export const SuccessEmail = ({ firstName }: ContactEmailProps) => {
             The REES team
           </Text>
           <Hr style={hr} />
-          <Text style={footer}>Tunji&apos;s Lounge, Yaba Lagos, Nigeria</Text>
+          <Text style={footer}>Tunji&apos;s Lounge, Yaba Lagos, Nigeria</Text> */}
         </Container>
       </Body>
     </Html>
