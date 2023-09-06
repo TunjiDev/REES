@@ -36,6 +36,7 @@ function Contact() {
     if (res.status === "success") {
       toast.success("Message sent successfully!");
       reset();
+      return res;
     } else {
       return toast.error("An error occurred, please try again!");
     }

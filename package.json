@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev"
+    "email": "email dev --dir src/app/emails --port 4000"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",

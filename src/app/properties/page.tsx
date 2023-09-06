@@ -16,7 +16,7 @@ const locations = [
   { label: "Ikeja", value: "Ikeja" },
   { label: "Surulere", value: "Surulere" },
   { label: "Gbagada", value: "Gbagada" },
-  { label: "Lekki", value: "Uganda" },
+  { label: "Lekki", value: "Lekki" },
 ];
 
 const propertyType = [

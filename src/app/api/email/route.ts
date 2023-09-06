@@ -1,20 +1,23 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { SuccessEmail } from "../../../../emails/index";
+import { SuccessEmail } from "../../emails/index";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  const { firstName } = await request.json();
+  const { firstName, email } = await request.json();
 
   await resend.sendEmail({
-    from: "Acme <onboarding@resend.dev>", //replace with vercel domain
+    from: "Rees<onboarding@resend.dev>",
     to: "adetunjiigbatayo@gmail.com",
     subject: "REES has a new message for you!",
-    react: SuccessEmail(firstName),
+    reply_to: email,
+    react: SuccessEmail({ firstName }),
   });
 
   return NextResponse.json({
     status: "success",
+    message: "Email sent successfully",
+    data: { firstName },
   });
 }

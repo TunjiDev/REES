@@ -41,7 +41,7 @@ function Property() {
 
           <Box px={"2rem"} color={"#4A60A1"}>
             <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"} fontWeight={"semibold"}>
-              {data?.name}
+              {`${data?.name} - ${data.forSale ? "For Sale" : data.forRent ? "For Rent" : ""}`}
             </Text>
 
             <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"}>
@@ -53,7 +53,7 @@ function Property() {
             </Text>
 
             <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"}>
-              Price: ₦{data?.price}
+              Price: ₦{data?.price.toLocaleString()}
             </Text>
 
             <Flex mb={"1rem"} alignItems={"center"}>

@@ -118,7 +118,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
                 </NumberInput>
 
                 {errors.price && (
-                  <Text mt={"1rem"} color={"red"}>
+                  <Text mt={"1rem"} color={"red"} fontSize={{ base: ".725rem", lg: "1rem" }}>
                     {errors.price.message}
                   </Text>
                 )}
@@ -141,7 +141,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
                 </RadioGroup>
 
                 {errors.rentOrSale && (
-                  <Text mt={"1rem"} color={"red"}>
+                  <Text mt={"1rem"} color={"red"} fontSize={{ base: ".725rem", lg: "1rem" }}>
                     {errors.rentOrSale.message}
                   </Text>
                 )}
@@ -159,7 +159,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
                 <Textarea placeholder={"Description"} {...register("description", { required: true })} />
 
                 {errors.description && (
-                  <Text mt={"1rem"} color={"red"}>
+                  <Text mt={"1rem"} color={"red"} fontSize={{ base: ".725rem", lg: "1rem" }}>
                     {errors.description.message}
                   </Text>
                 )}

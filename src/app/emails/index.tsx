@@ -3,10 +3,10 @@ import { Link } from "@react-email/link";
 import * as React from "react";
 
 interface ContactEmailProps {
-  firstname: string;
+  firstName: string;
 }
 
-export const SuccessEmail = ({ firstname }: ContactEmailProps) => {
+export const SuccessEmail = ({ firstName }: ContactEmailProps) => {
   return (
     <Html>
       <Head />
@@ -22,7 +22,7 @@ export const SuccessEmail = ({ firstname }: ContactEmailProps) => {
               style={logo}
             />
           </Link>
-          <Text style={paragraph}>Hi {firstname},</Text>
+          <Text style={paragraph}>Hi {firstName},</Text>
           <Text style={paragraph}>
             We hope this message finds you well. Thank you for reaching out to us at REES. We greatly appreciate your
             interest in our services and properties.

@@ -43,7 +43,7 @@ const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
           {...register}
         />
         {errorMessage && (
-          <FormHelperText fontSize="1rem" color="red">
+          <FormHelperText fontSize={{ base: ".725rem", lg: "1rem" }} color="red">
             {errorMessage}
           </FormHelperText>
         )}
