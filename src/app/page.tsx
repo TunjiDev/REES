@@ -171,7 +171,7 @@ export default function Home() {
                   imgAlt={property.name}
                   title={property.name}
                   description={property.description}
-                  price={`₦${property.price}`}
+                  price={`₦ ${property.price.toLocaleString()}`}
                   key={property.id}
                 />
               ))}
@@ -212,7 +212,7 @@ export default function Home() {
                   imgAlt={property.name}
                   title={property.name}
                   description={property.description}
-                  price={`₦${property.price}`}
+                  price={`₦ ${property.price.toLocaleString()}`}
                   key={property.id}
                 />
               ))}
