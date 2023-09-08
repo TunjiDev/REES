@@ -123,3 +123,16 @@ export const useGetGalleryProperties = () =>
       return data as any;
     },
   });
+
+export const useGetAllPropertiesLocations = () =>
+  useQuery({
+    queryKey: ["propertiesLocations"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("properties").select("location");
+      if (error) {
+        return toast.error(error.message);
+      }
+
+      return data as any;
+    },
+  });

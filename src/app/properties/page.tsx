@@ -6,18 +6,11 @@ import AppButton from "@/components/app-button";
 import Card from "@/components/card";
 import { Box, Flex, Heading, SimpleGrid, Text, Spinner, useMediaQuery } from "@/components/chakra-provider/index";
 import CustomSelect from "@/components/custom-select";
-import { useGetProperties } from "@/services/queries/properties";
+import { useGetProperties, useGetAllPropertiesLocations } from "@/services/queries/properties";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { PropertiesFilter } from "@/types";
 
 const PAGE_SIZE = 10;
-
-const locations = [
-  { label: "Ikeja", value: "Ikeja" },
-  { label: "Surulere", value: "Surulere" },
-  { label: "Gbagada", value: "Gbagada" },
-  { label: "Lekki", value: "Lekki" },
-];
 
 const propertyType = [
   { label: "For Rent", value: "For Rent" },
@@ -48,6 +41,27 @@ function Properties() {
     order: "",
   });
   const { data, isLoading, isSuccess, isPreviousData } = useGetProperties(page, pageSize, filters);
+  const { data: locationsData } = useGetAllPropertiesLocations();
+
+  function getUniqueValues(arr: { location: string }[]) {
+    const uniqueValues: { label: string; value: string }[] = [];
+    const seenValues: { [key: string]: boolean } = {};
+
+    if (arr) {
+      for (const item of arr) {
+        const location = item.location.toLowerCase();
+
+        if (!seenValues[location]) {
+          uniqueValues.push({ label: location, value: location });
+          seenValues[location] = true;
+        }
+      }
+    }
+
+    return uniqueValues;
+  }
+
+  const uniqueLocations = getUniqueValues(locationsData);
 
   const properties = data?.data || [];
   const totalCount = data?.count || 0;
@@ -95,7 +109,7 @@ function Properties() {
               w={{ base: "80%", lg: "auto" }}
               label="Location"
               placeholder={"Select Location"}
-              options={locations}
+              options={uniqueLocations}
               onChange={(event: any) => {
                 setFilters({ ...filters, location: event?.value });
               }}

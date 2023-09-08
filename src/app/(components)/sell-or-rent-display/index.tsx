@@ -63,6 +63,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
         image: data.image[0],
         ...(data.rentOrSale === "For Rent" && { forRent: true }),
         ...(data.rentOrSale === "For Sale" && { forSale: true }),
+        ...(data.location && { location: data.location.toLowerCase() }),
       };
       delete cleanedData.rentOrSale;
       const result = await createProperty(cleanedData);

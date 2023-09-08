@@ -53,7 +53,7 @@ function Property() {
             </Text>
 
             <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"}>
-              Price: ₦{data?.price.toLocaleString()}
+              Price: ₦ {data?.price.toLocaleString()}
             </Text>
 
             <Flex mb={"1rem"} alignItems={"center"}>
