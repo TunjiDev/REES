@@ -46,7 +46,7 @@ const Popup = ({
         width="100%"
         position="relative"
         background={"#fff"}
-        py={{ base: "1rem", md: "4.8rem" }}
+        py={{ base: "1rem", md: "1.8rem" }}
         px={{ base: ".1rem", md: "2.2rem" }}
         {...contentProps}
         color={"#0D1117"}
