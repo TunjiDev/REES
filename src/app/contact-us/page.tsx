@@ -7,6 +7,7 @@ import { ContactSchema } from "@/utils/schema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
+import styles from "./(styles)/contact-us.module.css";
 
 function Contact() {
   const formHook = useForm({
@@ -67,7 +68,14 @@ function Contact() {
       </Box>
 
       <Box py={"2rem"} px={{ base: ".5rem", lg: "2rem" }} as="section" bg={"#EDEFF6"}>
-        <Box mt={"3rem"} w={{ base: "100%", lg: "50%" }} mx={"auto"} bg={"#fff"} p={"1.5rem"}>
+        <Box
+          mt={"3rem"}
+          w={{ base: "100%", lg: "50%" }}
+          mx={"auto"}
+          bg={"#fff"}
+          p={"1.5rem"}
+          className={styles["slide-in-left"]}
+        >
           <form onSubmit={handleSubmit(submit)}>
             <Text
               fontSize={{ base: ".725rem", lg: "1rem" }}

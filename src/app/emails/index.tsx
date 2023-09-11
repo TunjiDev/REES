@@ -12,7 +12,7 @@ export const SuccessEmail = ({ firstName, lastName, message }: ContactEmailProps
   return (
     <Html>
       <Head />
-      <Preview>The sales intelligence platform that helps you uncover qualified leads.</Preview>
+      <Preview>Discover Your Dream Home Today!</Preview>
       <Body style={main}>
         <Container style={container}>
           <Link href="https://rees.vercel.app/">

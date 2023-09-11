@@ -1,7 +1,8 @@
 "use server";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { Box, Flex, Heading, Text, Image } from "@/components/chakra-provider";
+import styles from "./(styles)/about-us.module.css";
 
 function About() {
   return (
@@ -44,6 +45,7 @@ function About() {
           w={{ base: "90%", lg: "40%" }}
           h={"15rem"}
           alignItems={"center"}
+          className={styles["slide-in-left"]}
         >
           <Flex direction={"column"}>
             <Text w={"80%"} mb={"3rem"} fontSize={{ base: ".725rem", lg: "1rem" }}>
@@ -58,7 +60,11 @@ function About() {
             <Image src={"/images/tunji.png"} alt={"logo"} />
           </Box>
         </Flex>
-        <Box w={{ base: "90%", lg: "40%" }} fontSize={{ base: ".725rem", lg: "1rem" }}>
+        <Box
+          w={{ base: "90%", lg: "40%" }}
+          fontSize={{ base: ".725rem", lg: "1rem" }}
+          className={styles["slide-in-right"]}
+        >
           The REES Network represents the nation’s most comprehensive online rental marketplace. Our extensive network
           of 10 leading sites including xxx.com, xx1.com, xx2.com and 7 others are visited over 100 million times each
           month by renters looking for their next apartment. Our suite of digital advertising, social and reputation

@@ -1,0 +1,12 @@
+.slide-in-left {
+  animation: slideInLeft 1s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
