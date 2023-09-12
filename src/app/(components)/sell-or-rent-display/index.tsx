@@ -39,7 +39,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
       name: "",
       firstName: "",
       lastName: "",
-      price: "",
+      price: 0,
       rentOrSale: "",
       email: "",
       location: "",
@@ -68,6 +68,10 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
       delete cleanedData.rentOrSale;
       const result = await createProperty(cleanedData);
       if (result.length) {
+        await fetch("/api/buy-rent", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
         reset();
         setOpenModal(false);
       }

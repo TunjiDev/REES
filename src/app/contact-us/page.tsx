@@ -28,7 +28,7 @@ function Contact() {
   } = formHook;
 
   const submit = async (data: any) => {
-    const result = await fetch("/api/email", {
+    const result = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(data),
     });
