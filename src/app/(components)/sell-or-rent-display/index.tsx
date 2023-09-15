@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/navigation";
 import {
   Box,
   Flex,
@@ -31,6 +32,7 @@ interface PropType {
 
 function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
   const [isLowerThan1200] = useMediaQuery("(max-width: 1200px)");
+  const router = useRouter();
   const { mutateAsync: createProperty, isLoading } = useCreatePropertyMutation();
 
   const formHook = useForm({
@@ -74,6 +76,7 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
         });
         reset();
         setOpenModal(false);
+        router.push("/properties");
       }
     }
   };

@@ -9,7 +9,7 @@ export const useCreatePropertyMutation = () => {
   return useMutation(
     ["createProperty"],
     async (property: PropertiesType) => {
-      const imageName = `${Math.random()}-${property.image.name}`.replaceAll("/", "");
+      const imageName = `${Math.random()}-${property.image.name}`.replaceAll("/", "").replaceAll(" ", "");
 
       const imagePath = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/rees/${imageName}`;
       //1. Create a new property
