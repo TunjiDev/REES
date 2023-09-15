@@ -1,6 +1,5 @@
 "use server";
 
-// import { motion } from "framer-motion";
 import { Box, Flex, Heading, Text, Image } from "@/components/chakra-provider";
 import styles from "./(styles)/about-us.module.css";
 
