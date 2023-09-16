@@ -4,10 +4,11 @@ import * as React from "react";
 
 interface ContactEmailProps {
   firstName: string;
-  rentOrSale: "For Rent" | "For Sale";
+  lastName: string;
+  message: string;
 }
 
-export const SuccessEmail = ({ firstName, rentOrSale }: ContactEmailProps) => {
+const SuccessEmail = ({ firstName, lastName, message }: ContactEmailProps) => {
   return (
     <Html>
       <Head />
@@ -23,22 +24,11 @@ export const SuccessEmail = ({ firstName, rentOrSale }: ContactEmailProps) => {
               style={logo}
             />
           </Link>
-          <Text style={paragraph}>Hi {firstName},</Text>
-
+          <Text style={paragraph}>Hi Tunji,</Text>
+          <Text style={paragraph}>{message}</Text>
           <Text style={paragraph}>
-            Thank you for posting a property for{" "}
-            {`${rentOrSale === "For Rent" ? "rent" : rentOrSale === "For Sale" ? "sale" : ""}`} on our platform. Your
-            satisfaction is our top priority, and we are committed to assisting you in making maximum profit from your
-            property, whether it&apos;s for sale or rent.
+            Regards, {firstName} {lastName}
           </Text>
-
-          <Text style={paragraph}>
-            Best regards,
-            <br />
-            The REES team
-          </Text>
-          <Hr style={hr} />
-          <Text style={footer}>Tunji&apos;s Lounge, Yaba Lagos, Nigeria</Text>
         </Container>
       </Body>
     </Html>
