@@ -138,7 +138,7 @@ export default function Home() {
               <ChakraImage src={"/icons/sell-icon.svg"} alt={"sell"} />
             </Box>
             <Text fontWeight={"bold"} fontSize={{ base: "1rem", lg: "1.5rem" }} mb={"1rem"} textAlign={"left"}>
-              Sell Your Home
+              Rent or Sell Your Home
             </Text>
 
             <Text color={theme.colors.typography.gray} textAlign={"left"} fontSize={{ base: ".725rem", lg: "1rem" }}>

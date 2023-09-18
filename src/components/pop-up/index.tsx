@@ -63,7 +63,7 @@ const Popup = ({
           />
         )}
         {description && (
-          <Text fontWeight="bold" fontSize={{ base: "18px", lg: "28px" }} color={"#0D1117"}>
+          <Text fontWeight="bold" fontSize={{ base: "18px", lg: "28px" }} color={"#0D1117"} textAlign={"center"}>
             {description}
           </Text>
         )}

@@ -89,10 +89,10 @@ function SellOrRentDisplay({ openModal, setOpenModal }: PropType) {
         setPopupOpen={setOpenModal}
         closeIcon
         closeIconClick={() => setOpenModal(false)}
-        description="Sell or Rent your property with us"
+        description="Rent or Sell your property with us"
       >
         <Box py={{ base: "1rem", lg: "1.5rem" }} px={{ base: ".5rem", lg: "2rem" }}>
-          <Box mt={{ base: ".5rem", lg: "1.5rem" }} bg={"#fff"} p={"1.5rem"}>
+          <Box mt={{ base: ".5rem", lg: "1.5rem" }} bg={"#fff"} p={".5rem"}>
             <form onSubmit={handleSubmit(submit)}>
               <Box mb={"1rem"}>
                 <AppInput
