@@ -44,7 +44,7 @@ function ContactForm() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit(submit)}>
         <Text fontSize={{ base: ".725rem", lg: "1rem" }} as={"h3"} mb={"1rem"} color={"#1E2640"} fontWeight={"bold"}>
           Enquiry Form
@@ -84,7 +84,7 @@ function ContactForm() {
           </AppButton>
         </Flex>
       </form>
-    </div>
+    </>
   );
 }
 
