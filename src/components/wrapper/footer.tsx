@@ -1,9 +1,40 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@/components/chakra-provider/index";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./styles/footer.module.css";
 
 function Footer() {
+  const [bottom, setBottom] = useState(false);
+
+  const toTop = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY >= 800) {
+        setBottom(true);
+      } else {
+        setBottom(false);
+      }
+    }
+  };
+
+  const scrollToTop = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0 });
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", toTop);
+
+      return () => {
+        window.removeEventListener("scroll", toTop);
+      };
+    }
+  }, []);
+
   return (
     <Box as="footer" borderTop={"2px solid #4A60A1"} py={"2rem"} px={"2rem"}>
       <Flex
@@ -97,6 +128,18 @@ function Footer() {
           </Text>
         </Box>
       </Flex>
+
+      <Box
+        onClick={scrollToTop}
+        className={bottom ? `${styles.footer__topArrowIcon}` : `${styles.hidden} ${styles.footer__topArrowIcon}`}
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11 17V5.414l3.293 3.293a.999.999 0 1 0 1.414-1.414l-5-5a.999.999 0 0 0-1.414 0l-5 5a.997.997 0 0 0 0 1.414.999.999 0 0 0 1.414 0L9 5.414V17a1 1 0 1 0 2 0z"
+            fill="#4A60A1"
+          />
+        </svg>
+      </Box>
     </Box>
   );
 }

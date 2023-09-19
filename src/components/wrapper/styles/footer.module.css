@@ -1,0 +1,11 @@
+.footer__topArrowIcon {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
