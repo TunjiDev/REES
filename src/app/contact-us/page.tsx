@@ -20,7 +20,6 @@ function Contact() {
         py={"5rem"}
       >
         <Heading fontSize={{ base: "1.25rem", lg: "1.875rem" }} mb={"2rem"}>
-          {" "}
           Contact us
         </Heading>
         <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"3rem"}>
