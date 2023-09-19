@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Box, Text, Heading, Flex } from "@/components/chakra-provider/index";
 import theme from "@/utils/theme";
@@ -8,9 +8,17 @@ import SellDisplay from "../sell-or-rent-display";
 import FeaturedProperties from "../featured-properties";
 import RentProperties from "../rent-properties";
 import SaleProperties from "../sale-properties";
+import AppButton from "@/components/app-button";
 
 export default function Home() {
   const [openSellOrRentModal, setOpenSellOrRentModal] = useState(false);
+  const rentOrSellRef = useRef<HTMLDivElement>(null);
+
+  const scrollToRentOrSell = () => {
+    if (rentOrSellRef.current) {
+      rentOrSellRef.current.scrollIntoView();
+    }
+  };
 
   return (
     <>
@@ -30,10 +38,14 @@ export default function Home() {
         <Heading mb={"2rem"} fontSize={{ base: "1.25rem", lg: "1.875rem" }}>
           Find Your Dream Home
         </Heading>
-        <Text fontSize={{ base: ".725rem", lg: "1rem" }}>
+        <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"}>
           Begin Your Journey of Discovery to Find Your Dream Home, Where Every Brick Tells a Story, and Every Window
           Frames a Dream, We&apos;re Here to Make Your Home Aspirations a Reality.
         </Text>
+
+        <AppButton variant={"primary"} fontWeight={"normal"} onClick={scrollToRentOrSell}>
+          Want to Rent or Sell a property?
+        </AppButton>
       </Box>
 
       <Box as="section" py={"2rem"} textAlign={"center"} color={theme.colors.typography.dark}>
@@ -49,9 +61,16 @@ export default function Home() {
         <FeaturedProperties />
       </Box>
 
-      <Box as="section" bg={"#EDEFF6"} py={"2rem"} textAlign={"center"} color={theme.colors.typography.dark}>
+      <Box
+        as="section"
+        bg={"#EDEFF6"}
+        py={"2rem"}
+        textAlign={"center"}
+        color={theme.colors.typography.dark}
+        ref={rentOrSellRef}
+      >
         <Heading fontSize={{ base: "1.25rem", lg: "1.875rem" }} color={theme.colors.typography.dark} mb={"2rem"}>
-          Purchase, Rent or Sell a Property
+          Rent or Sell a Property
         </Heading>
 
         <Text mb={"3rem"} color={theme.colors.typography.gray} fontSize={{ base: ".725rem", lg: "1rem" }}>
@@ -116,6 +135,12 @@ export default function Home() {
 
         <SaleProperties />
       </Box>
+
+      <Flex justifyContent={"center"} my={"2rem"}>
+        <AppButton variant={"primary"} fontWeight={"normal"} onClick={scrollToRentOrSell}>
+          Want to Rent or Sell a property?
+        </AppButton>
+      </Flex>
 
       {openSellOrRentModal && <SellDisplay openModal={openSellOrRentModal} setOpenModal={setOpenSellOrRentModal} />}
     </>

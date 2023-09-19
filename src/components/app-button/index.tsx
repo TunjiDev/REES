@@ -34,7 +34,7 @@ const AppButton = ({
       style={style}
       disabled={disabled}
       isDisabled={disabled}
-      fontSize={{ base: "1rem", lg: theme.fontSizes.small }}
+      fontSize={{ base: ".8rem", lg: theme.fontSizes.small }}
       fontWeight="500"
       padding={{ base: ".5rem", lg: "1rem" }}
       h={variant === "outline" ? "2rem" : "2.5rem"}
