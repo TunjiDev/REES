@@ -56,7 +56,7 @@ function About() {
             </Box>
           </Flex>
           <Box mt={"-5rem"}>
-            <Image src={"/images/tunji.png"} alt={"logo"} />
+            <Image src={"/images/tunji.png"} alt={"tunji's photo"} />
           </Box>
         </Flex>
         <Box

@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody, Image as ChakraImage, Heading, Stack, Text } from "../chakra-provider";
+import { Card, CardBody, Heading, Stack, Text, Box } from "../chakra-provider";
+import Image from "next/image";
+import styles from "./styles/card.module.css";
 
 interface PropType {
   imgSrc: string;
@@ -16,7 +18,7 @@ function index({ imgSrc, imgAlt, title, description, price, onClick }: PropType)
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <Card maxW="sm" cursor={"pointer"} onClick={onClick} w={"full"} h={"full"}>
         <CardBody>
-          <ChakraImage src={imgSrc} alt={imgAlt} borderRadius="lg" />
+          <Image src={imgSrc} alt={imgAlt} width={500} height={500} className={styles.image} />
           <Stack mt="6" spacing="3">
             <Heading size={{ base: "sm", lg: "md" }} color={"#1E2640"} textAlign={"left"}>
               {title}

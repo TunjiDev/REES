@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Text, Heading, Flex, Image as ChakraImage } from "@/components/chakra-provider/index";
+import Image from "next/image";
+import { Box, Text, Heading, Flex } from "@/components/chakra-provider/index";
 import theme from "@/utils/theme";
 import SellDisplay from "../sell-or-rent-display";
 import FeaturedProperties from "../featured-properties";
@@ -77,7 +78,7 @@ export default function Home() {
             onClick={() => setOpenSellOrRentModal(true)}
           >
             <Box mb={"1rem"}>
-              <ChakraImage src={"/icons/sell-icon.svg"} alt={"sell"} />
+              <Image src={"/icons/sell-icon.svg"} alt={"sell"} width={78} height={78} />
             </Box>
             <Text fontWeight={"bold"} fontSize={{ base: "1rem", lg: "1.5rem" }} mb={"1rem"} textAlign={"left"}>
               Rent or Sell Your Home
