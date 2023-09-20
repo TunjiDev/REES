@@ -12,7 +12,7 @@ export default async function Property({
   };
 }) {
   const getProperty = async () => {
-    let { data } = await supabase.from("properties").select("*").eq("id", params.id).single();
+    const { data } = await supabase.from("properties").select("*").eq("id", params.id).single();
 
     return data as any;
   };
