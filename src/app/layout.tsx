@@ -39,8 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <ReactQueryProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
-
           <ChakraProviders>
             <Layout>{children}</Layout>
           </ChakraProviders>
