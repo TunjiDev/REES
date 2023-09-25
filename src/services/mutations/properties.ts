@@ -27,7 +27,7 @@ export const useCreatePropertyMutation = () => {
 
       //3. Delete property if there was an error uploading image
       if (storageError) {
-        await supabase.from("properties").delete().eq("id", data);
+        await supabase.from("properties").delete().eq("id", property.id);
         return toast.error(storageError.message);
       }
 

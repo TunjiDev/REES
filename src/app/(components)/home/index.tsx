@@ -35,7 +35,7 @@ export default function Home() {
         color={"#fff"}
         py={{ base: "1rem", lg: "5rem" }}
       >
-        <Heading mb={"2rem"} fontSize={{ base: "1.25rem", lg: "1.875rem" }}>
+        <Heading mb={"2rem"} fontSize={{ base: "1.25rem", lg: "1.875rem" }} as={"h1"}>
           Find Your Dream Home
         </Heading>
         <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"}>

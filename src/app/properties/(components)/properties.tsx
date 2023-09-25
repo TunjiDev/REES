@@ -90,7 +90,7 @@ function Index() {
         py={"5rem"}
         px={"2rem"}
       >
-        <Heading mb={"2rem"} fontSize={{ base: "1.25rem", lg: "1.875rem" }}>
+        <Heading mb={"2rem"} fontSize={{ base: "1.25rem", lg: "1.875rem" }} as={"h1"}>
           Properties
         </Heading>
         <Text mb={"3rem"} fontSize={{ base: ".725rem", lg: "1rem" }}>
