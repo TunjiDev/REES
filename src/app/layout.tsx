@@ -26,8 +26,6 @@ export const metadata: Metadata = {
     description: "Real Estate is a real estate company that provides real estate services to its clients.",
     siteId: "1467726470533754880",
     creator: "@el_directo_",
-    creatorId: "1467726470533754880",
-    images: ["https://lldfdtyvpeitatttmmnd.supabase.co/storage/v1/object/public/rees/logo.png"],
   },
   verification: {
     google: "2T_R5GhrkpqOkgC3cktqb9aWhJ6umlykENu1PvR6ti4",
