@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box, Text, Flex, Image, GridItem, Grid, Spinner } from "@/components/chakra-provider/index";
+import { Box, Text, Flex, GridItem, Grid, Spinner } from "@/components/chakra-provider/index";
 import { useGetFeaturedProperties } from "@/services/queries/properties";
 import theme from "@/utils/theme";
 

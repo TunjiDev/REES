@@ -46,7 +46,7 @@ function Footer() {
         <Box w={{ base: "full", lg: "20%" }}>
           <Box mb={"1rem"}>
             <Link href={"/"}>
-              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} />
+              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} priority />
             </Link>
           </Box>
           <Text fontSize={{ base: ".725rem", lg: "1rem" }} mb={"1rem"} as="h3" fontWeight={"bold"}>

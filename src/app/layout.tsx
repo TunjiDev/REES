@@ -38,6 +38,17 @@ export const metadata: Metadata = {
     publishedTime: "2023-09-25T00:00:00.000Z",
     authors: ["Tunji"],
   },
+  other: {
+    "theme-color": "#4A60A1",
+    "og:url": "https://rees.vercel.app",
+    "og:type": "website",
+    "og:title": "Real Estate (REES)",
+    "og:description": "Real Estate is a real estate company that provides real estate services to its clients.",
+    "og:image": "https://lldfdtyvpeitatttmmnd.supabase.co/storage/v1/object/public/rees/logo.png",
+    "og:image:alt": "Real Estate (REES)",
+    "og:locale": "en_US",
+    "og:site_name": "Real Estate (REES)",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

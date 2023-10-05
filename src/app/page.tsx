@@ -1,8 +1,6 @@
-"use server";
-
 import HomeComp from "./(components)/home";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <HomeComp />

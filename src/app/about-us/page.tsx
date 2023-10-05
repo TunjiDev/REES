@@ -1,9 +1,8 @@
-"use server";
-
-import { Box, Flex, Heading, Text, Image } from "@/components/chakra-provider";
+import { Box, Flex, Heading, Text } from "@/components/chakra-provider";
+import Image from "next/image";
 import styles from "./(styles)/about-us.module.css";
 
-function About() {
+export default function About() {
   return (
     <>
       <Box
@@ -42,7 +41,7 @@ function About() {
           borderRadius={"2rem"}
           textAlign={"left"}
           w={{ base: "90%", lg: "40%" }}
-          h={"15rem"}
+          h={{ base: "11rem", sm: "15rem" }}
           alignItems={"center"}
           className={styles["slide-in-left"]}
         >
@@ -56,7 +55,14 @@ function About() {
             </Box>
           </Flex>
           <Box mt={"-5rem"}>
-            <Image src={"/images/tunji.png"} alt={"tunji's photo"} />
+            <Image
+              src={"/images/tunji.png"}
+              alt={"tunji's photo"}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className={"image"}
+            />
           </Box>
         </Flex>
         <Box
@@ -83,4 +89,4 @@ function About() {
   );
 }
 
-export default About;
+export const dynamic = "force-dynamic";

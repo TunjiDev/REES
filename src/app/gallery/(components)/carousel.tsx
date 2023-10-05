@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Box, Text, Image, Flex, Spinner } from "@/components/chakra-provider";
+import { Box, Text, Flex, Spinner } from "@/components/chakra-provider";
+import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useGetGalleryProperties } from "@/services/queries/properties";
@@ -20,7 +21,14 @@ function Index() {
           {galleryProperties.map((property: any) => {
             return (
               <Box key={property.id} fontSize={{ base: ".725rem", lg: "1rem" }}>
-                <Image src={property.image} alt={property.title} height={{ base: 600, lg: 900 }} />
+                <Image
+                  src={property.image}
+                  alt={property.title ?? property.name}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className={"image"}
+                />
                 <Text className="legend">{property.name}</Text>
               </Box>
             );

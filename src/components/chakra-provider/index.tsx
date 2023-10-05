@@ -13,7 +13,6 @@ export {
   InputRightElement,
   Textarea,
   Spinner,
-  Image,
   Card,
   CardBody,
   CardFooter,

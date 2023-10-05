@@ -31,7 +31,7 @@ function Header() {
         <Flex as="nav" justifyContent={"space-between"} alignItems={"center"} py={".5rem"}>
           <Box>
             <Link href={"/"}>
-              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} />
+              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} priority />
             </Link>
           </Box>
 
@@ -94,7 +94,7 @@ function Header() {
 
           <Box>
             <Link href={"/"}>
-              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} />
+              <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} priority />
             </Link>
           </Box>
         </Flex>
@@ -107,7 +107,7 @@ function Header() {
           <DrawerHeader>
             <Box onClick={onClose}>
               <Link href={"/"}>
-                <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} />
+                <Image src={"/images/logo.png"} alt={"logo"} width={100} height={100} priority />
               </Link>
             </Box>
           </DrawerHeader>
@@ -115,11 +115,11 @@ function Header() {
             <Flex
               as="ul"
               listStyleType={"none"}
-              justifyContent={"space-between"}
+              justifyContent={"space-evenly"}
               alignItems={"center"}
-              gap={6}
               direction={"column"}
               color={"#0F1320"}
+              h={"100%"}
             >
               <Box
                 as="li"
